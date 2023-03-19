@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             Title="Examen Parcial 2 Grupo 2"
+             x:Class="ExamenSegundoParcial.MainPage">
+
+    <StackLayout>
+        <Image x:Name="img" HeightRequest="150" WidthRequest="150"  
+               Margin="20,0,20,0" HorizontalOptions="Center" Source="uth.png"/>
+        <controls:SignaturePadView
+	            x:Name="signatureView"
+	            StrokeWidth="3"
+	            StrokeColor="Black"
+	            BackgroundColor="White" 
+                HeightRequest="200"
+                WidthRequest="150"
+                />
+
+        <Label Text="Latitud" FontSize="Default" Padding="15,20,0,0" TextColor="Black"/>
+        <Entry x:Name="Latitud" Placeholder="Latitud Actual" Keyboard="Default"  Margin="10,5,5,5" IsEnabled="False"/>
+
+        <Label Text="Longitud" FontSize="Default" Padding="15,5,0,0" TextColor="Black"/>
+        <Entry x:Name="Longitud" Placeholder="Longitud Actual" Keyboard="Default"  Margin="10,5,5,5" IsEnabled="False"/>
+
+        <Label Text="Descibe la ubicacion" FontSize="Default" Padding="15,5,0,0" TextColor="Black"/>
+        <Grid ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto">
+            <Button x:Name="BtnGrabar" Grid.Column="0" Text="Grabar / Parar " Clicked="BtnGrabar_Clicked" />
+            <Button x:Name="BtnPlay" Grid.Column="1" Text="Reproducir" Clicked="BtnPlay_Clicked" IsEnabled="False" />
+        </Grid>
+        <StackLayout Orientation="Horizontal">
+            <Switch x:Name="TimeoutSwitch" IsToggled="True" />
+            <Label Text="Esperar unos segundos para parar cuando hay silecio" />
+        </StackLayout>
+
+        <Button x:Name="BtnUbicacion" Text="Obtener Mi Ubicación" Clicked="BtnUbicacion_Clicked" />
+        <Button x:Name="BtnGuardar" Text="Guardar" Clicked="BtnGuardar_Clicked" />
+        <Button x:Name="BtnLista" Text="Lista de Sitios" Clicked="BtnLista_Clicked" />
+
+    </StackLayout>
+
+</ContentPage>
