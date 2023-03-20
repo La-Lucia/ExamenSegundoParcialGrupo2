@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="ExamenSegundoParcial.Views.Modificar"
+             Title="Modificar">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:SignaturePadView
+	            x:Name="signatureView"
+	            StrokeWidth="3"
+	            StrokeColor="Black"
+	            BackgroundColor="White" 
+                HeightRequest="200"
+                WidthRequest="150"
+                />
+
+            <Label Text="Latitud" FontSize="Default" Padding="15,20,0,0" TextColor="Black"/>
+            <Entry x:Name="Latitud" Placeholder="Latitud Actual" Keyboard="Default"  Margin="10,5,5,5" IsEnabled="False"/>
+
+            <Label Text="Longitud" FontSize="Default" Padding="15,5,0,0" TextColor="Black"/>
+            <Entry x:Name="Longitud" Placeholder="Longitud Actual" Keyboard="Default"  Margin="10,5,5,5" IsEnabled="False"/>
+
+            <Button x:Name="BtnUbicacion" Text="Obtener Mi Ubicación" Clicked="BtnUbicacion_Clicked" BackgroundColor="#0e8d94" TextColor="White"/>
+            <Button x:Name="BtnGuardar" Text="Guardar" Clicked="BtnGuardar_Clicked" BackgroundColor="#0e8d94" TextColor="White"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

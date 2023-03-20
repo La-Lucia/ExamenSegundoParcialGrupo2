@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Convertidor="clr-namespace:ExamenSegundoParcial.Coverters"
+             x:Class="ExamenSegundoParcial.Views.ListaUbicaciones">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convertidor:ByteArrayToImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <StackLayout Padding="10">
+
+            <CollectionView x:Name="lista"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="lista_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="5" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding imagen, Converter={StaticResource ByteToImage}}" WidthRequest="80" HeightRequest="100" Aspect="AspectFill" />
+                                <StackLayout>
+                                    <Label Text="{Binding latitud, StringFormat='Latitud: {0}'}" FontSize="Medium" LineBreakMode="WordWrap"/>
+                                    <Label Text="{Binding longitud,  StringFormat='Longitud: {0}'}" FontSize="medium" LineBreakMode="WordWrap"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
+
+            <Grid VerticalOptions="EndAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="BtnEliminar" Grid.Row="0" Grid.Column="0" Text="Eliminar" Clicked="BtnEliminar_Clicked" BackgroundColor="#0e8d94" TextColor="White" CornerRadius="4"/>
+                <Button x:Name="BtnActualizar" Grid.Row="0" Grid.Column="1" Text="Actualizar" Clicked="BtnActualizar_Clicked" BackgroundColor="#0e8d94" TextColor="White" CornerRadius="4"/>
+                <Button x:Name="BtnMapa" Grid.Row="1"  Grid.Column="0" Text="Mapa" Clicked="BtnMapa_Clicked" BackgroundColor="#0e8d94" TextColor="White" CornerRadius="4"/>
+                <Button x:Name="BtnPlay" Grid.Row="1" Grid.Column="1" Text="Reproducir" Clicked="BtnPlay_Clicked" BackgroundColor="#0e8d94" TextColor="White" CornerRadius="4"/>
+            </Grid>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

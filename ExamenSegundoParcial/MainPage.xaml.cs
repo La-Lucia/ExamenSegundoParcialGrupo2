@@ -12,6 +12,7 @@ using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using SignaturePad.Forms;
 using System.IO;
+using ExamenSegundoParcial.Views;
 
 namespace ExamenSegundoParcial
 {
@@ -176,8 +177,9 @@ namespace ExamenSegundoParcial
             BtnGrabar.IsEnabled = true;
         }
 
-        private void BtnLista_Clicked(object sender, EventArgs e)
+        private async void BtnLista_Clicked(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new ListaUbicaciones());
 
         }
 
