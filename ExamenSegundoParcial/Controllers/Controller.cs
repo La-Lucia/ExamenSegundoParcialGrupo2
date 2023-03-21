@@ -36,8 +36,6 @@ namespace ExamenSegundoParcial.Controllers
         public async static Task<List<Models.Ubicacion>> GetUbicaciones()
         {
 
-
-
             List<Models.Ubicacion> posts = new List<Models.Ubicacion>();
 
             try

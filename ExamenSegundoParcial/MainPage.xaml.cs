@@ -50,6 +50,7 @@ namespace ExamenSegundoParcial
         private async void BtnGuardar_Clicked(object sender, EventArgs e)
         {
             ObtenerFirma();
+            ObtenerFirma();
             ObtenerAudio();
             
             if (Latitud.Text == null || Longitud == null)
@@ -85,6 +86,14 @@ namespace ExamenSegundoParcial
                     };
 
                     await Controllers.Controller.CreateUbicacion(ubi);
+
+                    await DisplayAlert("Atencion", "Sitio Guardado Correctamente", "aceptar");
+
+                    Latitud.Text = "";
+                    Longitud.Text = "";
+                    audioBytes = null;
+                    firma = null;
+                    
                 } catch (Exception ex) {
 
                     await DisplayAlert("error", "error" + ex, "aceptar");
@@ -171,7 +180,6 @@ namespace ExamenSegundoParcial
 
                 // Convertir el arreglo de bytes a una cadena base64
                 string base64String = Convert.ToBase64String(audioBytes);
-                await DisplayAlert("Audio guardado en byte", "Audio " + audioBytes, "ok");
                 Console.WriteLine(BitConverter.ToString(audioBytes));
 
                 if (filePath != null)
