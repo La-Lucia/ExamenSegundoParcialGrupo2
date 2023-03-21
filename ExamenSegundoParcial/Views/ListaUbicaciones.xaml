@@ -29,10 +29,10 @@
 
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding imagen, Converter={StaticResource ByteToImage}}" WidthRequest="80" HeightRequest="100" Aspect="AspectFill" />
+                               <Image Source="{Binding firma, Converter={StaticResource ByteToImage}}" WidthRequest="80" HeightRequest="100" Aspect="AspectFill" /> 
                                 <StackLayout>
-                                    <Label Text="{Binding latitud, StringFormat='Latitud: {0}'}" FontSize="Medium" LineBreakMode="WordWrap"/>
-                                    <Label Text="{Binding longitud,  StringFormat='Longitud: {0}'}" FontSize="medium" LineBreakMode="WordWrap"/>
+                                    <Label Text="{Binding latitud, StringFormat='Latitud: {0}'}" LineBreakMode="WordWrap"/>
+                                    <Label Text="{Binding longitud,  StringFormat='Longitud: {0}'}" LineBreakMode="WordWrap"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>

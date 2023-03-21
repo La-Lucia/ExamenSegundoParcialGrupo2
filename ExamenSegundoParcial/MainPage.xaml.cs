@@ -70,7 +70,26 @@ namespace ExamenSegundoParcial
                 await DisplayAlert("Atencion", "Graba un audio antes", "Aceptar");
 
             }
-            else { 
+            else {
+
+                try
+                {
+
+                    var ubi = new Models.Ubicacion
+                    {
+                        id = 0,
+                        firma = firma,
+                        latitud = Latitud.Text,
+                        longitud = Longitud.Text,
+                        audio = audioBytes
+                    };
+
+                    await Controllers.Controller.CreateUbicacion(ubi);
+                } catch (Exception ex) {
+
+                    await DisplayAlert("error", "error" + ex, "aceptar");
+
+                }
             
             }
 
@@ -221,6 +240,8 @@ namespace ExamenSegundoParcial
 
 
         }
+
+
 
         //Obtener el audio y convertirlo a base 64
         public async void ObtenerAudio()
